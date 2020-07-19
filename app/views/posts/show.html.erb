@@ -1,0 +1,44 @@
+<img src="<%= asset_path "https://source.unsplash.com/random" %>" alt="" width="80%" height="300"/>
+
+
+<!--サークル名-->
+<h2><%= @post.groupname %></h2>
+
+<!--活動内容-->
+<h3>活動内容</h3>
+<p><%= @post.content %></p>
+
+
+<!--スケジュール-->
+<h3 id="events">イベント・行事</h3>
+
+<!--サークルについて-->
+<h3>基本情報</h3>
+ <table>
+    <tr>
+      <th>人数</th><td><%= @post.numberofpeople %>人</td>
+    </tr>
+  
+    <tr>
+      <th>活動日</th><td>毎週〇〇曜日</td>
+    </tr>
+  
+    <tr>
+      <th>会費</th><td>〇〇円</td>
+    </tr>
+    <tr>
+        <th>活動場所</th><td></td>
+    </tr>
+</table>
+        
+<!--更新情報-->
+<h5>最終更新<%= @post.created_at %></h5>
+  
+<!--ログインかつUser一致で編集、削除が表示-->
+<!--現段階だとユーザー一致になっていない-->
+<% if @current_user %>
+  <div class="post-menus">
+    <%= link_to("編集", "/posts/#{@post.id}/edit") %>
+    <%= link_to("削除", "/posts/#{@post.id}/destroy", {method: "post"}, ) %>
+  </div>
+<% end%>

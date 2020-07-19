@@ -1,0 +1,36 @@
+<%= form_tag("/posts/#{@post.id}/update") do %>
+<!--<form>-->
+<div>
+  <h3>Edit Circle Information</h3>
+  
+  <div>
+   <p>Circle Name</p>
+   <textarea type="text" name="groupname" class="form-control"><%= @post.groupname %></textarea>
+  </div>
+  
+  
+  <div>
+   <p>About this Circle</p>
+   <textarea name="content"  class="form-control"><%= @post.content %></textarea>
+  </div>
+  
+  <h3>活動日</h3>
+  <%= text_field_tag "",'', placeholder:'date' %>
+  
+  <h3>サークル費用</h3>
+  <%= text_field_tag "",'', placeholder:'' %>
+  
+  <h3>活動場所</h3>
+  <%= text_field_tag "",'', placeholder:'' %>
+  
+  <h3>人数</h3>
+  <%= text_field_tag "",'', placeholder:'' %>
+ 
+  <!--更新ボタン-->
+<input type="submit" value="Upadate">
+
+</div>
+ 
+
+  
+<% end %>

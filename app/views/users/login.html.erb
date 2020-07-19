@@ -1,0 +1,22 @@
+<h3>log in</h3>
+  <% if @error_message %>
+      <%= @error_message %>
+    
+  <% end %>
+          
+        
+       
+<!--↓↓↓ここからログインフォーム↓↓↓-->
+<%= form_tag("/login") do %>
+  <p>Email</p>
+    <input name="email" value="<% %>">
+  
+  <p>Password</p>
+    <input type="password" name="password" value="<%= %>"><br>
+  
+    <input type="submit" value="Log in">
+
+<% end %>
+<br>
+<a href="/users/new">User Register</a>
+  

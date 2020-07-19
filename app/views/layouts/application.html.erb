@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CirclePicks</title>
+        <%= csrf_meta_tags %>
+        <%= csp_meta_tag %>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+
+
+
+
+  <body>
+    <header>
+        <h1 class="header-title">
+            <a href="/posts/index">Circle Picks v.β</a>
+        </h1>
+        
+        <ul id="header-menus">
+            <!--ログイン状態のメニューバー-->
+             <input type="checkbox" id="input">
+            <label for="input">
+              <div class="line"></div>
+              <div class="line"></div>
+              <div class="line"></div>
+            </label>
+            
+            <% if @current_user %>
+                <li><a><%= link_to("Search", "/posts/index") %></a></li>
+                <li><a><%= link_to("Log out", "#") %></a></li>
+                <li><a><%= link_to("Create Circle", "/posts/new") %></a></li>
+                
+                <!--ログアウト状態のメニューバー-->
+            <% else%>
+                <li><%= link_to("Search", "/posts/index") %></li>
+                <li><%= link_to("Log In", "/users/login") %></li>
+                <li><%= link_to("Create Circle", "/posts/new") %></li>
+                
+            <% end %>
+        </ul>
+    </header>
+    
+    
+     <% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+     <% end %>
+     
+     
+    
+    <%= yield %>
+    
+    <a href="/posts/about">About CirclePicks</a>
+  </body>
+</html>

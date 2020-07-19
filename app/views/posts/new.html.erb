@@ -1,0 +1,79 @@
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+       
+<h3 class="form-heading">Create a Circle</h3>
+        
+<%= form_tag("/posts/create") do %>
+<!--%= form_for @post, :html => {:multipart => true} do |f| %>-->
+
+<% @post.errors.full_messages.each do |message| %>
+  <div class="form-error">
+    <%= message %>
+  </div>
+<% end %>
+          
+          
+          
+  <div class="new-form">
+    <p>団体名<span>（必須）</span></p>
+    <%= text_field_tag "groupname",'', placeholder:'サークル名' %>
+  </div>
+  
+  <div class="new-form">
+    <p>人数</p>
+    <%= text_field_tag "numberofpeople",'', placeholder:'〇〇人' %>
+  </div>
+  
+  <div class="new-form">
+    <p>Activity date</p>
+     <select name="何曜日？">
+        <option selected="selected">何曜日？</option>
+        <option>月</option>
+        <option>火</option>
+        <option>水</option>
+        <option>木</option>
+        <option>金</option>
+        <option>土</option>
+        <option>日</option>
+        <option>不定期</option>
+      </select>
+  </div>
+  
+  
+  <div class="new-form">
+    <p>サークル費用</p>
+   <%= text_field_tag "#",'', placeholder:'How much?' %>
+   </div>
+  
+  <div class="new-form">
+    <p>活動内容</p>
+    <%= text_area_tag "content",'', placeholder:'About Circle', value: @post.content, cols:"30", rows:"10" %>
+  </div>
+  
+    <label>
+     <p>紹介画像</p>
+    <input multiple="multiple" type="file" class="new-images" accept="image/png, image/jpeg">
+    </label>
+    
+    <div class="new-form">
+    <p>代表者名<span>（必須）</span></p>
+    <%= text_field_tag "leader",'', placeholder:'Name' %>
+  </div>
+  
+  <div>
+    <p>学籍番号</p>
+     <%= text_field_tag "student number",'', placeholder:'８桁' %>
+  </div>
+
+     <label>
+      <p>外部情報（Twitter・Instagram・Facebookなど)</p>
+      <input type="url" class="new-url">
+     <label>
+       
+  <div>
+    <input type="submit" value="Upload">
+  </div>
+  
+<% end %>
+

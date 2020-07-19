@@ -1,0 +1,103 @@
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<!--検索システム-->
+<!--<div class="search-section">-->
+    <!--<div class="index-search"></div>-->
+    
+    
+    <!--検索バー-->
+    <div id="search-form">
+        <%= form_tag '/', :method => 'get' do %>
+        <%= text_field_tag :search, params[:search],placeholder: 'keyword' %>
+         <%= submit_tag "検索", :name => nil %>
+        <% end %>
+    </div>
+    
+    
+    <!--タグ検索-->
+    <!--<div class="search-label">-->
+    <!--    <%= check_box_tag :test1 %>-->
+    <!--    <%= label_tag :test1, "IT" %>-->
+    <!--    <%= check_box_tag :test1 %>-->
+    <!--    <%= label_tag :test1, "映像" %>-->
+    <!--    <%= check_box_tag :test1 %>-->
+    <!--    <%= label_tag :test1, "テニス" %>-->
+    <!--    <%= check_box_tag :test1 %>-->
+    <!--    <%= label_tag :test1, "オールラウンド" %>-->
+    <!--</div>-->
+    
+    
+   
+
+        
+        
+<div class="search">
+    <div class="contents-row">
+        <!--全サークル一覧-->
+        <% @posts.each do |post| %>
+        <div id="search-results">
+            
+            
+             <!--サークル名-->
+            <div id ="search-results--groupname">
+            <!--<div id="groupname">-->
+                <a><%= link_to(post.groupname, "/posts/#{post.id}") %></a>
+            <!--</div>-->
+            </div>
+            
+            
+        <!--<div id="search-results--image_table">-->
+        　　 <!--サークルの画像-->
+        　　 <div id="search-results--image">
+                <img id="group-image" src="<%= asset_path "https://source.unsplash.com/random" %>" alt="サークルの画像" width="" height=""/>
+            </div>
+            
+           
+            
+            <!--サークル情報表-->
+            <table id ="search-results--table">
+                <tr>
+                    <th>キャンパス</th>
+                    <td></td>
+                </tr>
+                <tr>
+                  <th>人数</th>
+                  <td>人</td>
+                </tr>
+              
+                <tr>
+                  <th>活動日</th>
+                  <td>毎週〇〇曜日</td>
+                </tr>
+              
+                <tr>
+                  <th>サー費</th>
+                  <td>〇〇円</td>
+                </tr>
+                <tr>
+                    <th>活動場所</th>
+                    <td></td>
+                </tr>
+            </table>
+        <!--</div>-->
+            
+            <!--サークル内容-->
+            
+            <div id="search-results--content">
+                <p>どんなサークル?</p>
+                <a><%= link_to(post.content, "/posts/#{post.id}") %></a>
+            </div>
+        </div>
+        <% end %>
+    </div>  
+</div>
+
+
+
+
+
+
+        
+

@@ -1,0 +1,27 @@
+<title>Group Create</title>
+<h3>Register</h3>
+instagram
+google 
+line
+twitter
+でログイン
+
+
+<%= form_tag("/users/create") do %>
+
+
+<p>---or---</p>
+<!--↓ここをメールだけに限定↓-->
+  <p>学籍番号</p>
+  <input name="name" value="<% %>">
+  
+  <p>E-mail</p>
+  <input name="email" value="<%= %>">
+  
+  <p>Password</p>
+  <input type="password" name="password" value="<%= %>">
+  
+  <!--↓パスワード確認入力↓-->
+
+  <input type="submit" value="新規登録">
+<% end %>
